@@ -93,6 +93,7 @@ class TimeNormalizer:
         rpointer = 0
         temp = []
         match = self.pattern.finditer(self.target)
+
         for m in match:
             startline = m.start()
             if startline == endline:
@@ -104,6 +105,7 @@ class TimeNormalizer:
             endline = m.end()
             rpointer += 1
         res = []
+        print('temptemp', temp)
         # 时间上下文： 前一个识别出来的时间会是下一个时间的上下文，用于处理：周六3点到5点这样的多个时间的识别，第二个5点应识别到是周六的。
         contextTp = TimePoint()
         for i in range(0, rpointer):

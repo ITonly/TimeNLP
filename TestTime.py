@@ -13,16 +13,21 @@
 import time
 import warnings
 from TimeNormalizer import TimeNormalizer
-from arrow.factory import ArrowParseWarning
-warnings.simplefilter("ignore", ArrowParseWarning)
+# from arrow.factory import ArrowParseWarning
+# warnings.simplefilter("ignore", ArrowParseWarning)
 
 
 if __name__ == "__main__":
     tn = TimeNormalizer()
-    while True:
-        query = input("\nINPUT : ")
-        ss = time.time()
-        # target为待分析语句, timeBase为基准时间, 默认是当前时间
-        # print("OUTPUT: ", tn.parse(target=query, timeBase="2019-02-03"))
-        print("OUTPUT: ", tn.parse(target=query))
-        print("TIME  : {0}ms!".format(round(1000 * (time.time() - ss), 3)))
+    # while True:
+        # query = input("\nINPUT : ")
+    ss = time.time()
+    # target为待分析语句, timeBase为基准时间, 默认是当前时间
+    # print("OUTPUT: ", tn.parse(target=query, timeBase="2019-02-03"))
+    query="8月1号中国a-12时型选手胜利"
+    # query = "8月1号与这些年话3点邓丽萍型选手胜利"
+    # res = tn.parse(target='8月1号中国a-12H型选手胜利', timeBase='2013-02-28 16:30:29')  # target为待分析语句，timeBase为基准时间默认是当前时间
+    # print(res)
+    print("OUTPUT: ", tn.parse(target=query))
+    print("TIME  : {0}ms!".format(round(1000 * (time.time() - ss), 3)))
+

@@ -56,8 +56,10 @@ class TimeUnit:
         # 判断是时间点还是时间区间
         flag = True
         for i in range(0, 4):
+            # 只要年月日存在一个，就是时间点
             if self.tp.tunit[i] != -1:
                 flag = False
+        print('flag=====',self.tp.tunit,flag)
         if flag:
             self.normalizer.isTimeSpan = True
 
@@ -74,6 +76,7 @@ class TimeUnit:
                 if self.tp.tunit[i] < 0:
                     tunit[i] = 0
             seconds = tunit[3] * 3600 + tunit[4] * 60 + tunit[5]
+            print('seconds====days',seconds,days)
             if seconds == 0 and days == 0:
                 self.normalizer.invalidSpan = True
             self.normalizer.timeSpan = self.genSpan(days, seconds)
